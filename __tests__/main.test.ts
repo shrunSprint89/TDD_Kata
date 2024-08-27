@@ -51,8 +51,14 @@ describe("calculateFromString", () => {
     });
   });
   describe("Multi digit string as input with new line chars as separators", () => {
-    it("return the sum as 10 for input as '1,1\\n1,1,1\\n1,1,4'", () => {
+    it("return the sum as 10 for input as '1,1\\n1,1,1\\n1,1,3'", () => {
       const result = add("1,1\n1,1,1\n1,1,3");
+      expect(result).toBe(10);
+    });
+  });
+  describe("Multi digit string as input with any delimiter mentioned in input string itself", () => {
+    it("return the sum as 10 for input as '//;\\n1;2\\n1;1;1\\n1;1;3'", () => {
+      const result = add("//;\n1;2\n1;1;1\n1;1;3");
       expect(result).toBe(10);
     });
   });
