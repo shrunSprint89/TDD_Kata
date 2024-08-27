@@ -50,4 +50,10 @@ describe("calculateFromString", () => {
       expect(result).toBe(10000);
     });
   });
+  describe("Multi digit string as input with new line chars as separators", () => {
+    it("return the sum as 10 for input as '1,1\\n1,1,1\\n1,1,4'", () => {
+      const result = add("1,1\n1,1,1\n1,1,3");
+      expect(result).toBe(10);
+    });
+  });
 });
