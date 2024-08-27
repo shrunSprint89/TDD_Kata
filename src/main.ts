@@ -1,4 +1,4 @@
-export function calculateFromString(inputList: string) {
+export function add(inputList: string) {
   if (inputList.length) {
     const inputArray = inputList.split(",").map((strVal) => parseInt(strVal));
     if (inputArray.length === 1) {
