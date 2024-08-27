@@ -34,5 +34,20 @@ describe("calculateFromString", () => {
       const result = add("0,0,0,0,0,0,0,1");
       expect(result).toBe(1);
     });
+    it("return the sum as 636 for input as '1,2,3,4,5,6,7,8,100,200,300'", () => {
+      const result = add("1,2,3,4,5,6,7,8,100,200,300");
+      expect(result).toBe(636);
+    });
+    it("return the sum as 22000 for input as '10,10,10,9,1,8,2,100,50,800,1000,5000,5000,5000,5000'", () => {
+      const result = add(
+        "10,10,10,9,1,8,2,100,50,800,1000,5000,5000,5000,5000"
+      );
+      expect(result).toBe(22000);
+    });
+    it("return the sum as 10000 for input as string with 1000 numbers of 10s", () => {
+      const inputString = new Array(1000).fill(10).join(",");
+      const result = add(inputString);
+      expect(result).toBe(10000);
+    });
   });
 });
