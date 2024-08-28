@@ -76,4 +76,10 @@ describe("calculateFromString", () => {
       expect(() => add("//;\n1;1\n1;1;1\n-1;1;3")).toThrow(error);
     });
   });
+  describe("Multi digit string as input containing multiple negative numbers", () => {
+    it("throws an exception stating 'Negative numbers not allowed <negative_numbers>'", () => {
+      const error = new Error("Negative numbers not allowed: -1, -2, -3");
+      expect(() => add("//;\n1;1\n1;1;1\n-1;-2;-3")).toThrow(error);
+    });
+  });
 });
