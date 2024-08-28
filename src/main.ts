@@ -11,9 +11,11 @@ export function add(inputString: string): number {
     } else {
       inputArray = inputString.split(/[,\n]/).map((strVal) => parseInt(strVal));
     }
-    const negativeNum = inputArray.find((num) => num < 0);
+    const negativeNum = inputArray.some((num) => num < 0);
     if (negativeNum) {
-      throw new Error(`Negative numbers not allowed: ${negativeNum}`);
+      throw new Error(
+        `Negative numbers not allowed: ${inputArray.filter((num) => num < 0).join(", ")}`
+      );
     }
     return inputArray.reduce((sum, nextValue) => sum + nextValue, 0);
   }
