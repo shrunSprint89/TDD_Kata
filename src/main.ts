@@ -17,7 +17,9 @@ export function add(inputString: string): number {
         `Negative numbers not allowed: ${inputArray.filter((num) => num < 0).join(", ")}`
       );
     }
-    return inputArray.reduce((sum, nextValue) => sum + nextValue, 0);
+    return inputArray
+      .filter((num) => num <= 1000)
+      .reduce((sum, nextValue) => sum + nextValue, 0);
   }
   return 0;
 }
