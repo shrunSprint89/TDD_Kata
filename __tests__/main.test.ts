@@ -82,4 +82,10 @@ describe("calculateFromString", () => {
       expect(() => add("//;\n1;1\n1;1;1\n-1;-2;-3")).toThrow(error);
     });
   });
+  describe("Multi digit string as input with large numbers", () => {
+    it("ignores numbers bigger than 1000", () => {
+      const result = add("//;\n1;1\n1;1;1\n1;1;3000;1001");
+      expect(result).toBe(7);
+    });
+  });
 });
