@@ -4,9 +4,15 @@ export function add(inputString: string): number {
     if (inputString.startsWith("//")) {
       const index = inputString.indexOf("\n");
       if (index !== -1) {
-        const regex = new RegExp(`[${inputString.slice(2, index + 1)}]`);
-        const inputStr = inputString.slice(index + 1);
-        inputArray = inputStr.split(regex).map((strVal) => parseInt(strVal));
+        const regexStr = inputString.slice(2, index);
+        const numberStr = inputString.slice(index + 1);
+        let regex = /,/;
+        if (regexStr.length > 1 && regexStr.indexOf("[") !== -1) {
+          regex = new RegExp(`${regexStr}|\\n`);
+        } else {
+          regex = new RegExp(`[${regexStr}]|\\n`);
+        }
+        inputArray = numberStr.split(regex).map((strVal) => parseInt(strVal));
       }
     } else {
       inputArray = inputString.split(/[,\n]/).map((strVal) => parseInt(strVal));
