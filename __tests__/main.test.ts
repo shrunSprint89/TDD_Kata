@@ -69,6 +69,10 @@ describe("calculateFromString", () => {
       const result = add("//#\n1#1\n1#1#1\n1#1#3");
       expect(result).toBe(10);
     });
+    it("returns the sum as 10 for input as '//####\\n1####1####1####1####1####1####1####3'", () => {
+      const result = add("//####\n1####1\n1####1####1\n1####1####3");
+      expect(result).toBe(10);
+    });
   });
   describe("Multi digit string as input containing a single negative number", () => {
     it("throws an exception stating 'Negative numbers not allowed: -1'", () => {
