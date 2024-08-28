@@ -24,9 +24,9 @@ describe("calculateFromString", () => {
       const result = add("5,95");
       expect(result).toBe(100);
     });
-    it("returns the sum as 20000 for input as '10000,10000'", () => {
-      const result = add("10000,10000");
-      expect(result).toBe(20000);
+    it("returns the sum as 1000 for input as '999,1'", () => {
+      const result = add("999,1");
+      expect(result).toBe(1000);
     });
   });
   describe("Multi digit string as input", () => {
@@ -38,11 +38,11 @@ describe("calculateFromString", () => {
       const result = add("1,2,3,4,5,6,7,8,100,200,300");
       expect(result).toBe(636);
     });
-    it("returns the sum as 22000 for input as '10,10,10,9,1,8,2,100,50,800,1000,5000,5000,5000,5000'", () => {
+    it("returns the sum as 6000 for input as '10,10,10,9,1,8,2,100,50,800,1000,1000,1000,1000,1000'", () => {
       const result = add(
-        "10,10,10,9,1,8,2,100,50,800,1000,5000,5000,5000,5000"
+        "10,10,10,9,1,8,2,100,50,800,1000,1000,1000,1000,1000"
       );
-      expect(result).toBe(22000);
+      expect(result).toBe(6000);
     });
     it("returns the sum as 10000 for input as string with 1000 numbers of 10s", () => {
       const inputString = new Array(1000).fill(10).join(",");
