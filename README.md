@@ -12,6 +12,8 @@ npm install
 
 ## Available Scripts
 
+Run these with 'npm run' if continuing to use NPM
+
 - `clean` - remove coverage data, Jest cache and transpiled files,
 - `prebuild` - lint source files and tests before building,
 - `build` - transpile TypeScript to ES6,
